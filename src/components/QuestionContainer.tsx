@@ -57,7 +57,7 @@ export default function QuestionContainer({onComplete}: QuestionProps) {
     return (
         <div className="flex flex-col items-center h-screen border w-1/3 px-5 bg-zinc-700">
             <div className="flex items-center h-2/5">
-                <img className="h-2/3 object-contain" src={`/flags/${question.correctAnswer.value}.svg`} />
+                <img className="h-2/3 object-contain" src={`${import.meta.env.BASE_URL}/flags/${question.correctAnswer.value}.svg`} />
             </div>
             <div className="flex flex-col w-full h-3/5 justify-between">
                 <div>
