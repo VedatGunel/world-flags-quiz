@@ -15,10 +15,10 @@ function App() {
 
   return (
     <div className="relative bg-zinc-800 text-gray-100">
-      <div className="flex flex-col place-items-center">
+      <div className="flex flex-col justify-end items-center md:place-items-center h-screen">
         <QuestionContainer onComplete={handleComplete}/>
       </div>
-      <div className="absolute top-0 left-0 text-2xl bg-zinc-700 p-3 rounded-lg">
+      <div className="absolute top-0 right-0 md:text-2xl bg-zinc-700 p-3 rounded-lg">
         Score: {score}
         <br />
         High Score: {highScore}
