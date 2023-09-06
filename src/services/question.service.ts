@@ -2,11 +2,10 @@ import countriesJson from "../assets/countries.json";
 import * as _ from "underscore";
 
 export interface Country {
-    name: string,
-    value: string,
-    flag: string
+    name: string;
+    value: string;
+    flag: string;
 }
-
 
 /*enum QuestionType {
     TEXT_OPTIONS,
@@ -14,8 +13,8 @@ export interface Country {
 }*/
 
 export interface Question<T> {
-    options: T[],
-    correctAnswer: T
+    options: T[];
+    correctAnswer: T;
 }
 
 class QuestionService {
@@ -26,24 +25,24 @@ class QuestionService {
     getQuestion(): Question<Country> {
         const shuffledCountries = _.shuffle(this.availableQuestions);
         const selectedCountries = shuffledCountries.slice(0, 4).map(country => {
-            return{
+            return {
                 name: country.name.common,
                 value: country.cca2,
-                flag: country.flags.svg
-            }
+                flag: country.flags.svg,
+            };
         });
 
         const correctIndex = Math.floor(Math.random() * 4);
         const correctAnswer = selectedCountries[correctIndex];
-        console.log(this.availableQuestions.length)
+        console.log(this.availableQuestions.length);
         this.availableQuestions = this.availableQuestions.filter(q => {
             return q.cca2 !== correctAnswer.value;
         });
 
         return {
             options: selectedCountries,
-            correctAnswer
-        }
+            correctAnswer,
+        };
     }
 }
 
