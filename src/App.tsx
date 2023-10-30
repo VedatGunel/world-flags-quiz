@@ -20,7 +20,7 @@ function App() {
             <div className="flex flex-col justify-end items-center md:place-items-center h-screen">
                 <QuestionContainer onComplete={handleComplete} />
             </div>
-            <div className="absolute top-0 right-0 md:text-2xl bg-zinc-700 p-3 rounded-lg">
+            <div className="absolute top-0 right-0 md:text-2xl bg-zinc-700 p-3 rounded">
                 Score: {score}
                 <br />
                 High Score: {highScore}
