@@ -5,4 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
     base: "/world-flags-quiz",
     plugins: [react()],
+    server: {
+        host: true
+    }
 });
