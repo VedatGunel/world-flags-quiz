@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classNames from "classnames";
 
 import QuestionContext, { QuestionCtx } from "../context/question";
@@ -17,6 +17,14 @@ export default function QuestionContainer() {
         ScoreContext
     ) as ScoreCtx;
 
+    useEffect(() => {
+        return () => {
+            setScore(0);
+            setSelectedOption(null);
+            setQuestion(questionService.getQuestion());
+        }
+    }, [])
+    
     const handleClick = (value: string) => {
         setSelectedOption(value);
         if (value === question.correctAnswer.value) {
