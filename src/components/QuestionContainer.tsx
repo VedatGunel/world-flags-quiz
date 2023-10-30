@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import Option from "./Option";
+import { useContext, useState } from "react";
+import classNames from "classnames";
+
 import QuestionContext, { QuestionCtx } from "../context/question";
 import ScoreContext, { ScoreCtx } from "../context/score";
-import classNames from "classnames";
+import { questionService } from "../services/question.service";
+
 import Flag from "./Flag";
+import Option from "./Option";
 
-interface QuestionProps {
-    onComplete: () => void;
-}
-
-export default function QuestionContainer({ onComplete }: QuestionProps) {
-    const { selectedOption, setSelectedOption, question } = useContext(
+export default function QuestionContainer() {
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const { question, setQuestion } = useContext(
         QuestionContext
     ) as QuestionCtx;
     const { setScore, highScore, setHighScore } = useContext(
@@ -43,6 +43,7 @@ export default function QuestionContainer({ onComplete }: QuestionProps) {
     const renderedOptions = question.options.map(option => (
         <Option
             option={option}
+            selectedOption={selectedOption}
             key={option.value}
             onClick={() => handleClick(option.value)}
         />
@@ -52,7 +53,8 @@ export default function QuestionContainer({ onComplete }: QuestionProps) {
         if (!isCorrect) {
             setScore(0);
         }
-        onComplete();
+        setSelectedOption(null);
+        setQuestion(questionService.getQuestion());
     };
 
     return (

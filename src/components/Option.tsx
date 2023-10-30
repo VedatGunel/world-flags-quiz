@@ -6,13 +6,15 @@ import QuestionContext, { QuestionCtx } from "../context/question";
 interface OptionProps {
     option: Country;
     onClick: () => void;
+    selectedOption: string | null;
 }
 
 export default function Option({
     option,
     onClick,
+    selectedOption
 }: PropsWithChildren<OptionProps>) {
-    const { question, selectedOption } = useContext(
+    const { question } = useContext(
         QuestionContext
     ) as QuestionCtx;
 
