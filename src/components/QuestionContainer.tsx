@@ -33,7 +33,7 @@ export default function QuestionContainer({ onComplete }: QuestionProps) {
     const isCorrect = selectedOption === question.correctAnswer.value;
 
     const btnClasses = classNames(
-        "my-10 border border-gray-300 rounded text-center cursor-pointer py-5",
+        "my-10 border border-gray-300 rounded text-center cursor-pointer py-3 md:py-5",
         "hover:bg-gray-500",
         { "text-red-400": !isCorrect },
         { "text-green-400": isCorrect }
@@ -64,7 +64,7 @@ export default function QuestionContainer({ onComplete }: QuestionProps) {
                     }.svg`}
                 />
             </div>
-            <div className="flex flex-col w-full h-fit justify-between">
+            <div className="flex flex-col w-full h-3/5 justify-between">
                 <div>{renderedOptions}</div>
                 {selectedOption && (
                     <button className={btnClasses} onClick={handleComplete}>

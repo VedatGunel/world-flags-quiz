@@ -21,7 +21,7 @@ export default function Option({
     const isDisabled = selectedOption !== null;
 
     const classes = classNames(
-        "w-full border border-gray-300 rounded text-center cursor-pointer py-5 my-1",
+        "w-full border border-gray-300 rounded text-center cursor-pointer py-3 md:py-5 my-1",
         "disabled:cursor-default",
         { "bg-red-400 text-black": isClicked && !isCorrect },
         { "bg-green-400 text-black": isDisabled && isCorrect },
